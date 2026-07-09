@@ -17,8 +17,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                pkill -f ".jar" || true
-                nohup java -jar target/*.jar > app.log 2>&1 &
+                sudo cp target/stock-market-0.0.1-SNAPSHOT.jar /opt/nammastocks/
+                sudo systemctl restart nammastocks
+                sudo systemctl status nammastocks --no-pager
                 '''
             }
         }
