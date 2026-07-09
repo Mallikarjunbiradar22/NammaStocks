@@ -15,13 +15,13 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                sh '''
-                sudo cp target/stock-market-0.0.1-SNAPSHOT.jar /opt/nammastocks/
-                sudo systemctl restart nammastocks
-                sudo systemctl status nammastocks --no-pager
-                '''
-            }
-        }
+    steps {
+        sh '''
+        sudo cp /var/lib/jenkins/workspace/Namma-stocks/target/stock-market-0.0.1-SNAPSHOT.jar /opt/nammastocks/
+        sudo systemctl restart nammastocks
+        sudo systemctl status nammastocks --no-pager
+        '''
+    }
+}
     }
 }
