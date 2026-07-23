@@ -1,5 +1,9 @@
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:21-jdk
+
 WORKDIR /app
-COPY target/NammaStocks.jar app.jar
-EXPOSE 1234
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+COPY target/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","app.jar"]
